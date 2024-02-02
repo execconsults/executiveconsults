@@ -1,0 +1,119 @@
+<% layout('./layouts/boilerplate.ejs')%>
+
+<title> Creation</title>
+<meta name='description'         content="Get the greatest deal for your product with Uniqu Web; in addition to offering printing, we also let consumers customize them to fit their needs. ">
+<meta property='og:description'  content="Get the greatest deal for your product with Uniqu Web; in addition to offering printing, we also let consumers customize them to fit their needs. ">
+<meta name='twitter:description' content="Get the greatest deal for your product with Uniqu Web; in addition to offering printing, we also let consumers customize them to fit their needs. ">
+<meta property="og:image"  content="https://cdn.dribbble.com/users/4684322/screenshots/18839720/media/790db88203bff67b84e96ea616081087.png?resize=1600x1200&vertical=center">
+<meta name="twitter:image" content="https://cdn.dribbble.com/users/4684322/screenshots/18839720/media/790db88203bff67b84e96ea616081087.png?resize=1600x1200&vertical=center">
+
+
+<style>
+    
+.card2 {
+    --border-radius: 2rem;
+    width: 16em;
+    margin-left: 3em;
+    margin-bottom: 7em;
+    aspect-ratio: 1;
+    min-height: 16em;
+    margin-top: 5em;
+    position: relative;
+    z-index: unset;
+    background-color: black;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(1rem);
+    transition: width 0.5s ease; /* Add transition property for width */
+
+    &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--border-radius);
+        z-index: -1;
+        background-image: linear-gradient(122.12deg, #166496 0%, #961664 100%);
+        --b: 0.5;
+        filter: brightness(var(--b));
+        transition: all 0.5s ease-in-out; /* Adjust transition property for smooth animation */
+        --border: 4;
+        --alpha: 0;
+        --gradient: linear-gradient(122.12deg, #166496 0%, #961664 100%);
+        --bg-size: calc(100% + (2px * var(--border)));
+        background: var(--gradient) center center / var(--bg-size) var(--bg-size);
+        border: calc(var(--border) * 1px) solid transparent;
+        mask: linear-gradient(hsl(0 0% 100% / var(--alpha)), hsl(0 0% 100% / var(--alpha))),
+            linear-gradient(hsl(0 0% 100%), hsl(0 0% 100%));
+        mask-clip: padding-box, border-box;
+        mask-composite: intersect;
+    }
+
+    &:hover {
+        width: 20em;
+        &:after {
+            --b: 1;
+            isolation: isolate;
+        }
+    }
+}
+
+ .filter2 {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    width: max(40vh, 40vh);
+    aspect-ratio: 1;
+    user-select: none !important;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scaleY(-1);
+    z-index: 100;
+    --_m1: radial-gradient(rgb(255 255 255 / 1) 0%, rgb(255 255 255 / 0.5) 40%, rgb(255 255 255 / 0) 65%, rgb(255 255 255 / 0) 100%);
+    --_m: radial-gradient(rgb(0 0 0 / 0.9) 0%, rgb(0 0 0 / 0.5) 40%, rgb(0 0 0 / 0) 65%, rgb(0 0 0 / 0) 100%);
+    -webkit-mask-box-image: var(--_m1);
+    mask-border: var(--_m1);
+    mix-blend-mode: overlay;
+    backdrop-filter: brightness(4) url(#filter);
+}
+ 
+</style>
+
+<div class="bodys2" style="background-color: #07192F; ">
+
+<div id="movableDiv" class="filter2"></div>
+<br>
+<br>    
+
+<div class="card2 mb-2 rounded-xl"><a class="" href="https://earnitz.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/ezfinder.png" alt="" srcset=""> </a></div>
+<div class="card2 mb-2  rounded-xl"><a class="" href="https://gukari.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/gukari.png" alt="" srcset=""> </a></div>
+<div class="card2 mb-2 rounded-xl"><a class="" href="https://adcshine.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/adc.png" alt="" srcset=""> </a></div>
+<div class="card2 mb-2 rounded-xl"><a class="" href="https://bdiautorepair.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/repair.png" alt="" srcset=""> </a></div>
+<div class="card2 mb-2  rounded-xl"><a class="" href="https://earnitz.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/ezmb.png" alt="" srcset=""> </a></div>
+<div class="card2 mb-2 rounded-xl"><a class="" href="https://yardmancleaning.com/" target="_blank" rel="noopener noreferrer"> <img class="rounded-xl" src="/imgs/yd.png" alt="" srcset=""> </a></div>
+
+<!-- <div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div>
+<div class="card2"></div> -->
+<svg style="width: 0; height: 0; position: fixed;">
+	<filter id="filter">
+		<feGaussianBlur stdDeviation="10" in="SourceGraphic" edgeMode="none" result="blur" />
+		<feComposite in="blur" in2="SourceGraphic" operator="over" result="composite" />
+	</filter>
+</svg>
+
+</div>
+<script>
+    const div = document.getElementById("movableDiv");
+  console.log(div)
+  document.addEventListener("mousemove", moveDiv);
+  
+  function moveDiv(event) {
+    console.log(event)
+      div.style.left = event.clientX + "px";
+      div.style.top = event.clientY + "px";
+  }
+  </script>

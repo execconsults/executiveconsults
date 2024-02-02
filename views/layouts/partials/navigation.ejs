@@ -1,0 +1,257 @@
+<div class="absolute left-2/4 z-[999] my-4 flex w-full max-w-screen-2xl -translate-x-2/4 flex-wrap items-center px-4 lg:fixed undefined" style="    z-index: 999999;">
+    <nav class="block w-full max-w-screen-2xl rounded-xl  px-8 backdrop-saturate-200 backdrop-blur-2xl bg-opacity-70 border border-white/80 bg-white text-white py-4 pl-6 pr-2 lg:py-2.5 shadow shadow-blue-gray-500/10">
+        <div class=" jsmbflex flex  w-full items-center !justify-between text-[#1A237E] undefined">
+          <div class="flex justify-between spw items-center">
+
+            <a class="py-2.375 text-size-sm mr-4 whitespace-nowrap font-bold text-inherit lg:ml-0" href="/"><img style="width: 14em" class="h-10 w-16" src="/imgs/logo.png" alt="" srcset=""></a>
+            <button id="mobileMenuToggle" class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none max-w-[40px] max-h-[40px] rounded-lg text-xs ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden" type="button">
+                <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg></span>
+            </button>
+          </div>
+
+            <style>
+
+                  /* Add this style for the glowing animation */
+    @keyframes glow {
+      0% { background-color: #7e3af2; }
+      50% { background-color: #9333ea; }
+      100% { background-color: #7e3af2; }
+    }
+
+    /* Apply the animation to the button */
+    .glowing-button {
+      animation: glow 2s infinite; /* Change the duration as needed */
+    }
+                .activebar{
+                    border: 1px white;
+                    background-color: #2563EB;
+                    border-radius: 0.375rem;
+                    color: white;
+                }
+                .scroller {
+                max-width: 800px;
+              }
+
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+/* general styles */
+
+:root {
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-primary-100: hsl(205, 15%, 58%);
+  --clr-primary-400: hsl(215, 25%, 27%);
+  --clr-primary-800: hsl(217, 33%, 17%);
+  --clr-primary-900: hsl(218, 33%, 9%);
+}
+
+
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+    color: white;
+
+}
+
+.tag-list li {
+  padding: 1rem;
+  color: white;
+  background: hsl(209.41deg 29.14% 65.69%);  border-radius: 0.5rem;
+  /* box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900); */
+}
+
+/* for testing purposed to ensure the animation lined up correctly */
+.test {
+  background: red !important;
+}
+/* Toggle A */
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
+
+/* Toggle B */
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
+
+            </style>
+            <div class="lg:base-auto navmb hidden flex-grow basis-full items-center overflow-hidden lg:flex lg-max:max-h-0">
+                <div class="flex  w-full flex-col lg:flex-row xl:ml-40">
+                    <ul class="mb-0 flex list-none flex-col gap-2 pl-0 text-inherit transition-all lg:ml-auto lg:flex-row lg:gap-4">
+                        <li>
+                            <a class="flex navlink Home  items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Home</a>
+                        </li>
+                        <li>
+                            <a class="flex navlink Pricing  items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/pricing">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Pricing</a>
+                        </li>
+                        <li>
+                            <a class="flex navlink Creation items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/creation">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Creation </a>
+                        </li>
+                        <li class="hidden">
+                            <a class="flex navlink Business items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/business">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Business </a>
+                        </li>
+                        <li>
+                            <a class="flex navlink Support items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/support">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Support </a>
+                        </li>
+                        <li>
+                            <a class="flex navlink Resources items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="/resources">
+                                <!-- <i class="bi mb-1.5 bi-house-door-fill mr-.5 h-[20px] w-[20px] opacity-85"></i> -->
+                                Resources </a>
+                        </li>
+                        <!-- <li>
+                            <a class="flex navlink items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer"
+                                href="/blocks"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    fill="currentColor" class="mr-1.5 h-[18px] w-[18px] opacity-75">
+                                    <path fill-rule="evenodd"
+                                        d="M3 6a3 3 0 013-3h2.25a3 3 0 013 3v2.25a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm9.75 0a3 3 0 013-3H18a3 3 0 013 3v2.25a3 3 0 01-3 3h-2.25a3 3 0 01-3-3V6zM3 15.75a3 3 0 013-3h2.25a3 3 0 013 3V18a3 3 0 01-3 3H6a3 3 0 01-3-3v-2.25zm9.75 0a3 3 0 013-3H18a3 3 0 013 3V18a3 3 0 01-3 3h-2.25a3 3 0 01-3-3v-2.25z"
+                                        clip-rule="evenodd"></path>
+                                </svg>Activity</a>
+                        </li> -->
+                        <!-- <li>
+                            <a class="flex navlink items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer"
+                                href="/blocks"> <i
+                                    class="bi mb-1.5 bi-camera-video-fill mr-.5 h-[20px] w-[20px] opacity-75"></i>
+                                Match</a>
+                        </li> -->
+                        <!-- <li>
+                            <button rel="noreferrer" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button" class="flex quizbutton navlink items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer px-3 py-2 lg:px-3"><i class="bi bi-globe mr-2 mb-.6"></i>Discover <svg class="w-4 h-4 ml-1" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-l="" inecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg></button>
+                            <div id="dropdown" class="z-10 p-3 hidden  bg-white divide-y divide-gray-700 rounded-lg shadow w-80 " style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(733px, 61px);" data-popper-escaped="" data-popper-placement="bottom">
+                            
+                            </div>
+                        </li> -->
+                        <!-- <li>
+                            <a href="/blog" class=" apbutton flex mr-6 navlink items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer px-3 py-2 lg:px-3">
+                                <i class="bi mb-1.5 bi-bookmark-star-fill mr-.5 h-[20px] w-[20px] opacity-75"></i>
+
+                                Courses
+                            </a>
+                        </li> -->
+                    </ul>
+
+
+                    <div class="mt-4 flex flex-col border-t border-blue-gray-50 pt-4 lg:mt-0 lg:ml-auto lg:flex-row lg:border-0 lg:pt-0">
+                        <label for="toggleA" class="flex items-center cursor-pointer">
+                            <!-- toggle -->
+                            <div class="relative">
+                              <!-- input -->
+                              <input id="toggleA" type="checkbox" class="sr-only" checked/>
+                              <!-- line -->
+                              <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                              <!-- dot -->
+                              <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+                            </div>
+                            <!-- label -->
+                            <div class="ml-3 text-gray-700 font-medium">Animation</div>
+                          </label>
+                        <ul class="flex items-center">
+                            <li class="mt-[3px]">
+                                <a class="flex items-center px-1 py-2 font-normal transition-all duration-250 text-size-sm text-current font-light lg:px-2 cursor-pointer" href="https://discord.gg/QwqrNGwc" target="_blank" rel="noreferrer"><i class="fab fa-discord text-lg leading-none" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <div href="/login" rel="noreferrer">
+                          
+                          <button class="getstartedbtn align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gradient-to-tr from-blue-600 to-purple-600 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85] mt-3 mb-5 flex items-center lg:mt-0 lg:mb-0 lg:ml-4" type="button">
+                                Book now
+                            </button>
+
+
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </nav>
+</div>
+
+<script>
+        window.addEventListener('DOMContentLoaded',() =>{
+            const currentUrl = window.location.href;
+            console.log(currentUrl)
+            const includesSubstring = (substring) => currentUrl.includes(substring);
+            if(includesSubstring('pricing')){
+                const pricing = document.querySelector('.Pricing')
+                pricing.classList.add('activebar')
+            } else if(includesSubstring('creation')){
+                const creation = document.querySelector('.Creation')
+                creation.classList.add('activebar')
+
+            } else if(includesSubstring('business')){
+                const business = document.querySelector('.Business')
+                business.classList.add('activebar')
+            } else if(includesSubstring('support')){
+                const support = document.querySelector('.Support')
+                support.classList.add('activebar')
+            } else if(includesSubstring('resources')){
+                const resources = document.querySelector('.Resources')
+                resources.classList.add('activebar')
+            } else {
+                const home = document.querySelector('.Home')
+                home.classList.add('activebar')
+            }
+        })
+
+        
+</script>

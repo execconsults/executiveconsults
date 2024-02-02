@@ -1,0 +1,1263 @@
+
+
+  <style>
+    .activefw {
+      border: 2px solid blue;
+      border-radius: 50%;
+      padding: 0.2em;
+    }
+
+    /* Add this style for the active class */
+    .active-plan {
+      border-color: #6366f1;
+      /* Update with your desired color */
+      background-color: #edf2ff;
+      /* Update with your desired color */
+    }
+
+    .activedb {
+      border: 2px solid rgb(0, 255, 21);
+      border-radius: 50%;
+      padding: 0.2em;
+    }
+
+    .sitedb:hover {
+      cursor: pointer;
+
+    }
+
+    .sitefw:hover {
+      cursor: pointer;
+    }
+
+    .pc1 {
+      width: 30%;
+    }
+
+    .dbtext {
+      font-size: 11px;
+    }
+
+    body {
+      background-color: #fff;
+
+    }
+
+    .pc2 {
+      width: 40%;
+    }
+
+    .pricingdiv {
+      display: flex;
+    }
+
+    .pc3 {
+      width: 30%;
+    }
+
+    .hdb {
+      display: none;
+    }
+
+    .group--main-content--asset {
+      height: 100%;
+      width: 100%;
+    }
+
+    .tds-shell {
+      --tds-shell-content-height: calc(100vh - var(--tds-shell-header-height) - var(--tds-shell-footer-height));
+      grid-gap: 0 24px;
+      display: grid;
+      grid-template-areas:
+        "tds-shell-masthead"
+        "tds-shell-content"
+        "tds-shell-footer";
+      grid-template-columns: auto;
+      grid-template-rows: var(--tds-shell-header-height) 1fr var(--tds-shell-footer-height);
+      min-block-size: 100vh;
+      min-block-size: -webkit-fill-available;
+      --tds-color--grey60: #e2e3e3;
+      --tds-color--grey65: #eee;
+      --tds-color--grey70: #f4f4f4;
+    }
+
+    body {
+      overflow: hidden;
+      --bezier: cubic-bezier(0.5, 0, 0, 0.75);
+    }
+
+    /* Style the input field without a border */
+    .borderless-input {
+      border: none;
+      outline: none;
+      padding: 0em;
+      margin: 0em;
+      background-color: transparent;
+    }
+
+    .listing {
+      width: 30%;
+      margin-right: 3em;
+    }
+
+    .mg-to-t {
+      margin-left: -0.4em;
+    }
+
+    .priceimg {}
+
+
+    /* Override focus styles for the input field */
+    .borderless-input:focus {
+      box-shadow: none;
+      padding: 0em;
+      margin: 0em;
+      border-color: transparent;
+    }
+
+    .detailbox {
+      width: 90%;
+    }
+
+    #backfof {}
+
+    .cf-layout {
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .ft8 {
+      font-size: 28px;
+    }
+
+    .gallery.is-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity .5s var(--bezier), visibility .5s 0s, transform .5s var(--bezier);
+      visibility: inherit;
+    }
+
+    .gallery_asset--section {
+      align-items: center;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 100%;
+    }
+
+    .gallery_asset--section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .5s var(--bezier), visibility .5s .5s, transform .5s var(--bezier);
+      visibility: hidden;
+    }
+
+    .gallery_asset--section.is-active {
+      animation: gallery-asset-intro 5s ease 0s !important;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      opacity: 1;
+      transition: opacity .5s var(--bezier);
+      visibility: inherit;
+    }
+
+    .asset-loader-2 {
+      image-rendering: -webkit-optimize-contrast;
+      transition: opacity 1s var(--bezier), transform 1s var(--bezier);
+    }
+
+    .gallery {
+      --off-pos-slide: var(--tds-size-3x);
+      height: 100%;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .tds-shell {
+      --tds-shell-content-height: calc(100vh - var(--tds-shell-header-height) - var(--tds-shell-footer-height));
+      grid-gap: 0 24px;
+      display: grid;
+      grid-template-areas:
+        "tds-shell-masthead"
+        "tds-shell-content"
+        "tds-shell-footer";
+      grid-template-columns: auto;
+      grid-template-rows: var(--tds-shell-header-height) 1fr var(--tds-shell-footer-height);
+      min-block-size: 100vh;
+      min-block-size: -webkit-fill-available;
+    }
+
+    .tds-shell-footer {
+      bottom: 0;
+      left: 10px;
+      position: fixed;
+      right: 10px;
+    }
+
+    .tds-shell-footer {
+      grid-area: tds-shell-footer;
+    }
+
+    .tds-shell-footer,
+    .tds-shell-masthead {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    .cf-footer-layout {
+      width: 100vw;
+    }
+
+    .tds-flex {
+      display: flex;
+      flex-flow: column wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    html:not(.tds-theme--dk) body:not(.i18n-model-ct) .summary-panel--footer {
+      background: #aaa8a8;
+    }
+
+    .summary-panel--footer {
+      border-radius: 16px 16px 0 0;
+      grid-area: footer;
+      margin: auto;
+      padding: 0px 20px;
+      position: relative;
+      transform: translateY(0);
+      transition: transform 1s var(--bezier) 0s;
+    }
+
+    .footer-modal-trigger {
+      align-items: center;
+      background: #fff;
+      border-radius: 100%;
+      display: flex;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .2));
+      height: 32px;
+      justify-content: center;
+      min-width: 32px;
+      overflow: visible;
+      transition: filter .33s ease;
+      width: 32px;
+    }
+
+    tds-icon--small {
+      --tds-icon--size: 16px;
+    }
+
+    .tds-icon {
+      background: var(--tds-icon--bg);
+      block-size: var(--tds-icon--size);
+      content: "";
+      display: block;
+      inline-size: var(--tds-icon--size);
+      max-inline-size: 100%;
+      min-block-size: var(--tds-icon--size);
+      min-inline-size: var(--tds-icon--size);
+      overflow: hidden;
+      text-indent: -9999px;
+      transition: color .33s ease, transform .5s var(--tds-bezier);
+    }
+
+    .summary-panel--footer .tds-flex-item {
+      display: flex;
+      margin: 0 10px;
+    }
+
+    .tds-flex-item {
+      flex: 1;
+    }
+
+    .summary-panel--footer .tds-flex-item .tds-flex-item:nth-child(2) {
+      border-inline-start: 1px solid var(--tds-color--grey50);
+      padding: 0 15px;
+    }
+
+    .summary-panel--footer .tds-flex-item {
+      display: flex;
+      margin: 0 10px;
+    }
+
+    .tds-flex--justify-center {
+      justify-content: center;
+    }
+
+    .tds-flex {
+      display: flex;
+      flex-flow: column wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media only screen and (min-width: 1020px) {
+      .cf-asset-wrapper {
+        grid-area: main;
+        height: 100vh;
+        max-height: 100%;
+        overflow: hidden;
+        position: sticky;
+        top: 0;
+      }
+
+      .cf-footer-layout {
+        padding-left: 0;
+      }
+
+      .tds-shell-footer {
+        width: 75%;
+      }
+
+      .option-widget--container>.group-container {
+        z-index: inherit;
+      }
+
+      .cf-layout>.option-widget--container {
+        -webkit-overflow-scrolling: touch;
+        grid-area: aside;
+        overflow: visible !important;
+      }
+
+      .overview-page .option-widget--container,
+      .payment-page .option-widget--container>:nth-child(2) {
+        animation: animate-in 1s var(--bezier) !important;
+      }
+
+      .option-widget {
+        grid-gap: 0 var(--tds-size--6x);
+        display: grid;
+        grid-template: "main aside" 1fr/9fr minmax(320px, 1fr);
+        padding-inline-end: var(--tds-size--6x);
+        scroll-margin-top: var(--tds-shell-header-height);
+        scrollbar-width: none;
+        transition: none;
+      }
+
+    }
+
+    @media (min-width: 600px) {
+      .tds-flex {
+        flex-flow: row wrap;
+      }
+    }
+
+    @media only screen and (max-width: 1000px) {
+      .pricingcard {
+        width: 90%;
+        margin-top: 4em;
+      }
+
+      .gallery {
+        height: 14em;
+      }
+
+      .listing {
+        width: 100%;
+      }
+
+      .detailbox {
+        width: 50%;
+      }
+
+      .pricingdiv {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  </style>
+  <div id="backfof" class="h-auto">
+
+    <div>
+      <div> <br>
+        <br>
+        <br>
+        <br><br>
+      </div>
+
+      <div class="screeb option-widget cf-layout">
+        <div class="priceimg cf-asset-wrapper">
+          <div class="d gallery MainGallery-gallery.EXTERIOR is-active">
+            <div role="presentation" class="gallery_asset--section is-active"
+              style="position: relative; left: 0px; top: 0px; transform: scale(1); touch-action: none;">
+              <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-full p-3">
+                  <!-- Item 1 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img
+                      src="https://cdn.dribbble.com/users/4684322/screenshots/18473471/media/253b5748681cb7ebdd8d5c5097f236a4.png"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 2 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img
+                      src="https://cdn.dribbble.com/userupload/3147907/file/original-ef12f2da9631c66d36ef317b0cd00b65.jpeg?resize=1905x1429"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img
+                      src="https://cdn.dribbble.com/userupload/2866581/file/original-856165e1c4cdb795ef97b079b236daaf.png?resize=1600x1200"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 4 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img
+                      src="https://cdn.dribbble.com/users/4684322/screenshots/18954364/media/760a820fecc0686c48b6a33fed05806d.png"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  <!-- Item 5 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img
+                      src="https://cdn.dribbble.com/users/4684322/screenshots/18839720/media/790db88203bff67b84e96ea616081087.png?resize=1600x1200&vertical=center"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                    data-carousel-slide-to="0"></button>
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                    data-carousel-slide-to="1"></button>
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                    data-carousel-slide-to="2"></button>
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                    data-carousel-slide-to="3"></button>
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                    data-carousel-slide-to="4"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button"
+                  class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                  data-carousel-prev>
+                  <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 1 1 5l4 4" />
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                  </span>
+                </button>
+                <button type="button"
+                  class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                  data-carousel-next>
+                  <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 9 4-4-4-4" />
+                    </svg>
+                    <span class="sr-only">Next</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="purches mt-5 hidden">
+          <button class="backedit flex rounded-md p-2 ml-1 text-sm  hover:bg-gray-100 "><i class="bi bi-chevron-left"></i> <span>Edit design</span>          </button>
+          <div id="contactForm" action="/submit-form" method="post" class="p-6 flex flex-col justify-center">
+            <div class="flex flex-col">
+                <label for="name" class="hidden">Your Name</label>
+                <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" required="">
+            </div>
+
+            <div class="flex flex-col mt-2">
+                <label for="email" class="hidden">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" required="">
+            </div>
+
+
+            <div class="flex flex-col mt-2 ">
+                <label for="tel" class="hidden">Number</label>
+                <input type="number" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" required="">
+            </div>
+            <select id="countries" name="category" class="bg-gray-50 mt-2  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <option selected="">Choose Category</option>
+                <option value="Online Store">Online Store</option>
+                <option value="Partnership"> Partnership</option>
+                <option value="Portfolio">Portfolio</option>
+                <option value="Photography">Photography</option>
+                <option value="Blog">Blog</option>
+                <option value="Community">Community</option>
+                <option value="Documentation">Documentation</option>
+                <option value="Landing Page"> Landing Page</option>
+
+
+
+              </select>
+   
+            <div class="flex flex-col mt-2">
+                <label for="company" class="hidden">Company Name</label>
+                <input type="company" name="company" id="company" placeholder="Company Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400  text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" required="" autocomplete="off">
+            </div>
+            <div class="relative max-w-sm hidden">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"></path>
+                  </svg>
+                </div>
+                <input datepicker="" type="text" class="  mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 " placeholder="Project Date">
+              </div>
+
+            <textarea id="message" rows="4" class="block mt-2 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Project Details"></textarea>
+            <div class="topay">
+              
+              <div class="recepttopay">
+                
+              </div>
+              <div class="totalp">
+
+              </div>
+            </div>
+
+            <button type="submit" class="senddata w-full bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
+                Submit
+            </button>
+            <br><br><br><br><br><br>
+          </div>
+
+          <div class="billing">
+
+          </div>
+        </div>
+        <div class="details group-section option-widget--container" style="overflow-y: scroll;">
+          <div class="group-container">
+            <div class="p-2">
+              <div class="br">
+                <!-- <br><br> -->
+                <div
+                  class=" hidden ml-3 mr-3 pricingcard rounded-2xl bg-[#f9fafb] shadow-lg scale-105 border-2 border-indigo-600 relative transform-gpu hidden">
+                  <div class="bg-white pt-8 pb-4 rounded-t-2xl">
+                    <span
+                      class="absolute bg-indigo-600 text-white rounded-full py-2 px-4 -top-6 left-1/2 transform -translate-x-1/2">Most
+                      popular</span>
+                    <h3 class="text-2xl text-center font-bold">Growth</h3>
+                    <div class="text-center my-4 flex justify-center items-center">
+                      <span class="text-4xl mr-2">$</span>
+                      <span class="text-6xl font-bold">149</span>
+                      <span class="text-xl text-gray-400 ml-4">/month</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex flex-col justify-start px-12 py-6">
+                      <ul>
+                        <li class="py-4 font-bold text-gray-500 text-base">
+                          <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                          <span>Quia rem est sed impedit culpa</span>
+                        </li>
+
+
+
+                      </ul>
+                      <button
+                        class="block bg-indigo-600 w-full shadow-lg text-white p-5 rounded-lg my-4 hover:bg-indigo-800">
+                        Start your trial
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+              </div>
+              <div class="titles">
+                <br>
+                <div>
+                  <input type="text" id="domainInput"
+                    class="text-black form-control text-white w-full text-4xl mb-3 borderless-input" value="Example.com"
+                    placeholder="Enter domain name">
+
+                </div>
+                <br>
+                <!-- <input type="text" id="domainInput" class="form-control mb-3" placeholder="Enter domain name">
+  <div id="resultContainer"></div> -->
+                <div class="mode">
+
+                  <label for="themeSwitcherOne"
+                    class=" themeSwitcherTwo text-black shadow-two relative inline-flex cursor-pointer bg-gray-400 select-none text-center items-center justify-center rounded-md w-full  p-1">
+                    <input type="checkbox" name="themeSwitcherOne" id="themeSwitcherOne" class="sr-only">
+                    <span data-type="single"
+                      class="flex w-full text-center light single text-primary bg-gray flex items-center space-x-[6px] justify-center rounded py-2 px-[18px] text-sm font-medium"
+>
+                      Single
+                    </span>
+                    <span data-type="business"
+                      class="flex items-center dark text-center  w-full buisness text-body-color flex items-center justify-center space-x-[6px] rounded py-2 px-[18px] text-sm font-medium"
+>
+                      Business
+                    </span>
+                  </label>
+                </div>
+
+                <br>
+                <div class="flex justify-between">
+                  <div class="flex items-center  flex-col">
+                    <div class="items-center flex flex-col">
+                      <img class="w-8"
+                        src="https://webimages.mongodb.com/_com_assets/cms/kr1fnjggpyn4wa67k-Dedicated_Icon.svg?auto=format%2Ccompress&ch=DPR&fix=max&h=30"
+                        alt="" srcset="">
+
+                      <span class="text-3xl font-semibold db-op">5 <span class="mg-to-t " style="font-size: 14px; ">gb</span>
+                      </span>
+                    </div>
+                    <span class="text-gray-600 text-xs">Database</span>
+                  </div>
+                  <div class="flex items-center  flex-col">
+
+                    <div class="items-center flex flex-col">
+                      <img class="w-8"
+                        src="https://webimages.mongodb.com/_com_assets/cms/l3loyvx9btmm9c67y-Leaf@4x%20(1).png?" alt=""
+                        srcset="">
+
+                      <span class="text-3xl font-semibold cpu-op">.5 <span class="mg-to-t " style="font-size: 14px;">cpu</span>
+                      </span>
+                    </div>
+                    <span class="text-gray-600 text-xs">Hosting</span>
+                  </div>
+                  <div class="flex items-center flex-col">
+
+                    <div class="items-center flex flex-col">
+                      <img class="w-8" src="/imgs/speed.png" alt="" srcset="">
+
+                      <span class="text-3xl font-semibold speed-op">1.9 <span class="mg-to-t " style="font-size: 14px;">s</span>
+                      </span>
+                    </div>
+                    <span class="text-gray-600 text-xs">Speed</span>
+
+                  </div>
+                </div>
+                <br>
+
+              </div>
+
+
+              <div class="type flex flex-col">
+                <div class="wi">
+                  <span>Website targeted trafic </span>
+                  <div
+                    class="rounded-sm text-gray-700 flex border p-1 text-sm bg-gray-100 border-solid justify-between p-3">
+                    <span> Regular Boost</span>
+                    <span>$10</span>
+                  </div>
+                </div> <br>
+                <div class="wito">
+                  <span>
+                    Overall Wide Trafic
+                    <div
+                      class="rounded-sm text-gray-700 flex border p-1 text-sm bg-gray-100 border-solid justify-between p-3">
+                      <span>Search SEO Boost</span>
+                      <span class="otc-op" >$15</span>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <br>
+              <div>
+                <span class="text-gray-700">
+                  * Sites that include masive image store needs a price modification make sure to contact us if that's
+                  the
+                  case *
+
+
+                </span>
+
+
+                <div class="framework mt-64 flex flex-col justify-center items-center text-center">
+
+                  <span class="text-2xl ft8">Framwork</span>
+                  <br>
+                  <div class="flex justify-between">
+                    <div class="select node">
+                      <img class="w-12 h-12 ml-3  sitefw nodejs" data-id="nodejs" src="/imgs/nodefw.png" alt=""
+                        srcset="">
+                    </div>
+                    <div class="select react">
+
+                      <img class="w-12 h-12 ml-3 sitefw" data-id="react" src="/imgs/reactfw.png" alt="" srcset="">
+                    </div>
+                    <div class="select golang">
+
+                      <img class="w-12 h-12 ml-3 sitefw" data-id="go" src="/imgs/gofw.png" alt="" srcset="">
+                    </div>
+
+
+                  </div>
+                  <br>
+                  <span class="textfw">The best fast and most used in applications </span>
+
+                </div>
+
+                <div class="framework mt-52 flex flex-col justify-center items-center text-center">
+
+                  <span class="text-2xl ft8">Database Level</span>
+                  <br>
+                  <div class="flex justify-between">
+                    <div class="select Shared">
+                      <img class="w-12 h-12 ml-3  dsp-op sitedb shared" data-id="shared"
+                        src="https://webimages.mongodb.com/_com_assets/cms/kr1fpoi6njksy0sfl-Playground_Icon.svg?auto=format%2Ccompress&ch=DPR&fix=max&h=30&dpr=2&q=50"
+                        alt="" srcset="">
+                      <span class="dbtext">Shared</span>
+
+                    </div>
+                    <div class="select dedicated ">
+
+                      <img class="w-12 h-12 ml-3 sitedb dcp-op" data-id="dedicated"
+                        src="https://webimages.mongodb.com/_com_assets/cms/kr1fnjggpyn4wa67k-Dedicated_Icon.svg?auto=format%2Ccompress&ch=DPR&fix=max&h=30&dpr=2&q=50"
+                        alt="" srcset="">
+                      <span class="dbtext">Dedicated</span>
+                    </div>
+
+                    <div class="select Serverless          ">
+
+                      <img class="w-12 h-12 ml-3 sitedb" data-id="serverless"
+                        src="https://webimages.mongodb.com/_com_assets/cms/kr1forpyj7n2f6uw3-Elastic_Icon.svg?auto=format%2Ccompress&ch=DPR&fix=max&h=30&dpr=2&q=50"
+                        alt="" srcset="">
+                      <span class="dbtext">Serverless</span>
+                    </div>
+
+
+                  </div>
+                  <br>
+
+                  <span class="textdb text-xs">For learning and exploring MongoDB in a cloud environment. Basic
+                    configuration options.<a target="_blank" href="https://www.mongodb.com/pricing"><b>Learn
+                        more</b></a>
+                  </span>
+                  <br>
+                  <br><br>
+                  <br>
+                  <br><br>
+                  <br>
+                  <br><br>
+                </div>
+                <br>
+                <br><br>
+
+                <div class="framework flex flex-col justify-center items-center text-center p-2">
+
+                  <span class="text-2xl ft8">Hosting</span>
+
+                  <div class="overflow-hidden">
+                    <div class="overflow-x-autoflex flex-col flex-wrap" data-test-id="plan-picker" style="width: 18em;"
+                      id="headlessui-radiogroup-:r13:" role="radiogroup" aria-labelledby="headlessui-label-:r14:"><label
+                        class="sr-only" id="headlessui-label-:r14:" role="none">Monthly Plan</label>
+                      <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)] pl-12 mb-2"
+                        role="none">
+                        <div class="min-w-[100px]" data-test-id="Instance Type" role="none"><span
+                            class="antialiased font-sans font-medium text-sm text-gray-900 leading-6"
+                            role="none">Instance Type</span></div>
+                        <div class="min-w-[100px] text-right" data-test-id="RAM" role="none"><span
+                            class="antialiased font-sans font-medium text-sm text-gray-900 leading-6"
+                            role="none">RAM</span></div>
+                        <div class="min-w-[100px] text-right" data-test-id="CPU" role="none"><span
+                            class="antialiased font-sans font-medium text-sm text-gray-900 leading-6"
+                            role="none">CPU</span></div>
+                        <div class="min-w-[100px] text-right" data-test-id="Price" role="none"><span
+                            class="antialiased font-sans font-medium text-sm text-gray-900 leading-6"
+                            role="none">Price</span></div>
+                      </div>
+                      <div
+                      data-id="psc1"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row sn-plan-op"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r15:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc1" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Free</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">512</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">MB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">0.1</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$0</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc2"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r16:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc2" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Starter</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">512</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">MB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">0.5</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$7</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc3"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r17:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc3" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Standard</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">2</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">GB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">1</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$25</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc4"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded outline-none border-indigo-600 bg-slate-25 cursor-pointer plan-row po-plan-op"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r18:" role="radio"
+                        aria-checked="true" tabindex="0">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc4" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Pro</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">4</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">GB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">2</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$85</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc5"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r19:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc5" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Pro
+                                  Plus</span></div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">8</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">GB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">4</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$175</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc6"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r1a:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc6" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Pro
+                                  Max</span></div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">16</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">GB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">4</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$225</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                      data-id="psc7"
+                        class="flex items-center h-14 mb-2 py-5 border-[1px] border-solid border-slate-300 rounded cursor-pointer plan-row"
+                        data-test-id="plan-picker-row" id="headlessui-radiogroup-option-:r1b:" role="radio"
+                        aria-checked="false" tabindex="-1">
+                        <div class="flex-1 flex items-baseline">
+                          <div class="my-auto ml-4">
+                            <div id="psc7" class="w-4 h-4 rounded-full border-solid border-slate-400 psc border-[1.5px]"></div>
+                          </div>
+                          <div class="w-full">
+                            <div class="grid grid-flow-col gap-x-4 px-4 grid-cols-[2fr_repeat(3,_3fr)]">
+                              <div class="min-w-[100px]" data-test-id="Instance Type"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">Pro
+                                  Ultra</span></div>
+                              <div class="min-w-[100px] text-right" data-test-id="RAM"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">32</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">GB</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="CPU"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">8</span>
+                                <span
+                                  class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">CPU</span>
+                              </div>
+                              <div class="min-w-[100px] text-right" data-test-id="Price"><span
+                                  class="antialiased font-sans font-medium text-sm text-gray-900 leading-6">$450</span>
+                                <span class="antialiased font-sans font-normal text-sm text-gray-900 leading-6">/
+                                  month</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="antialiased font-sans font-normal text-sm text-gray-900 leading-6 mt-2 mb-4 text-center">
+                      Need a <a
+                        class="antialiased font-sans font-normal text-sm text-gray-900 leading-6 !text-indigo-600 !hover:text-indigo-700 no-underline	"
+                        href="mailto:sales@render.com">custom instance type</a>? We support up to 512 GB RAM and 64
+                      CPUs.</p>
+                  </div>
+
+                </div>
+                <div class="framework mt-20 flex flex-col justify-center items-center text-center">
+
+                  <span class="text-2xl ft8">Get started with your website </span>
+                  <br>
+
+                  <div class="flex justify-center">
+
+                    <button type="button"
+                      class="nextinfobutton text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Continue</button>
+
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+
+                  <span class="textdb text-xs">For learning and exploring MongoDB in a cloud environment. Basic
+                    configuration options.<a target="_blank" href="https://www.mongodb.com/pricing"><b>Learn
+                        more</b></a>
+                  </span>
+                  <br>
+                  <br>
+
+                </div>
+                <br>
+              </div>
+              <div class="hidden">
+
+                <p class="text-gray-600 mb-4">Product Description</p>
+                <p class="text-gray-600 mb-4">Price: $XX.XX</p>
+                <p class="text-gray-600 mb-4">Color: Red</p>
+                <p class="text-gray-600 mb-4">Size: Large</p>
+                <p class="text-gray-600 mb-4">SKU: XXXXXXXX</p>
+                <p class="text-gray-600 mb-4">Availability: In Stock</p>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Add to
+                  Cart</button>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer" data-id="footer" class="tds-shell-footer">
+        <div class="tds-flex cf-footer-layout cf-footer--desktop" style="bottom: 160px;">
+          <div class="tds-flex tds-flex-item">
+            <div  data-modal-target="priceup" data-modal-toggle="priceup"  class="p-4 footer-action-block summary-panel--footer" data-id="finance-footer">
+              <!-- <div data-id="modal-trigger-container" class="modal-trigger-container"><button
+                  class="modal-trigger tds-icon-trigger" type="button">
+                  <div class="footer-modal-trigger"><svg class="tds-icon tds-icon-chevron-small tds-icon--small"
+                      viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                      <path fill="currentColor"
+                        d="M2.75 11.025a.748.748 0 0 1-.53-1.281l5.264-5.25a.75.75 0 0 1 1.06 0l5.236 5.223a.75.75 0 1 1-1.06 1.062L8.014 6.084 3.28 10.806a.748.748 0 0 1-.53.219z">
+                      </path>
+                    </svg></div> -->
+              <div class="tds-flex-item p-3 summary-options">
+                <div class="tds-flex-item tds-flex--col_1of5 tds-flex--center tds-flex--justify-center">
+                  <div class="tds-flex tds-text--body tds-text--500 tds-text_color--10 summary-panel--item">
+                                          
+                    <span
+                    class="pricing-label text-white  pricing-label--null ml-3">Total Price:</span>
+                  
+                    <span
+                      class="finance-type ml-2 text-white finance-type--cash flex"><b> $ <span class="price">0</span></b> </span>
+
+                    </div>
+                </div>
+
+
+              </div>
+              </button>
+            </div>
+            <div class="tds-flex footer-summary--disclaimer"></div>
+          </div>
+        </div>
+    </div>
+    </footer>
+    <!-- Main modal -->
+    <div id="priceup" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow ">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                  <h3 class="text-xl font-semibold text-gray-900 ">
+                    Pricing Finance 
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="priceup">
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <div class="p-4 md:p-5 space-y-4">
+                <div class="recepit"></div>
+              </div>
+            
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  </div>
+
+  <div class="pricelist hidden">
+
+    <div class="bg-black ">
+      <br>
+      <br>
+
+    </div>
+    <div class="pricing bg-black">
+      <div class="flex flex-col justify-start items-center w-screen  mt-0">
+        <div class="flex flex-col items-center bg-[] rounded-2xl w-[85vw] max-w-7xl  py-10 ">
+          <h4 class="text-gray-300 text-2xl">Pricing</h4>
+          <h2 class="text-white text-[2.75rem] mt-2 font-bold">
+            The right price for you, whoever you are
+          </h2>
+          <p class="text-gray-300 text-2xl text-center w-[70%] mt-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit numquam
+            eligendi quos odit doloribus molesatiae voluptatum.
+          </p>
+
+          <div class=" pricingdiv w-full items-center px-8 mt-24">
+            <div class=" pc1 pricingcard rounded-2xl bg-[#f9fafb] shadow-lg">
+              <div class="bg-white pt-8 pb-4 rounded-t-2xl">
+                <h3 class="text-xl text-center font-bold">Hobby</h3>
+                <div class="text-center my-4 flex justify-center items-center">
+                  <span class="text-4xl mr-2">$</span>
+                  <span class="text-6xl font-bold">79</span>
+                  <span class="text-xl text-gray-400 ml-4">/month</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex flex-col justify-start px-12 py-6">
+                  <ul>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Pariatur quod similique</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Sapiente libero doloribus</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Vel ipsa esse repudiandae</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="block bg-white w-full shadow-lg text-indigo-600 p-5 rounded-lg my-4 hover:bg-indigo-600 hover:text-white">
+                    Start your trial
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class=" hidden pc2 pricingcard rounded-2xl bg-[#f9fafb] shadow-lg scale-105 border-2 border-indigo-600 relative transform-gpu">
+              <div class="bg-white pt-8 pb-4 rounded-t-2xl">
+                <span
+                  class="absolute bg-indigo-600 text-white rounded-full py-2 px-4 -top-6 left-1/2 transform -translate-x-1/2">Most
+                  popular</span>
+                <h3 class="text-2xl text-center font-bold">Growth</h3>
+                <div class="text-center my-4 flex justify-center items-center">
+                  <span class="text-4xl mr-2">$</span>
+                  <span class="text-6xl font-bold">149</span>
+                  <span class="text-xl text-gray-400 ml-4">/month</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex flex-col justify-start px-12 py-6">
+                  <ul>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Quia rem est sed impedit culpa</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Dolorem vera ratione voluptates</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Qui sed ab doloribus voluptatem</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Laborum commodi molestiae id</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Nam ut ipsa nesciunt culpa</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="block bg-indigo-600 w-full shadow-lg text-white p-5 rounded-lg my-4 hover:bg-indigo-800">
+                    Start your trial
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class=" pc3 pricingcard rounded-2xl bg-[#f9fafb] shadow-lg">
+              <div class="bg-white pt-8 pb-4 rounded-t-2xl">
+                <h3 class="text-xl text-center font-bold">Scale</h3>
+                <div class="text-center my-4 flex justify-center items-center">
+                  <span class="text-4xl mr-2">$</span>
+                  <span class="text-6xl font-bold">349</span>
+                  <span class="text-xl text-gray-400 ml-4">/month</span>
+                </div>
+              </div>
+              <div>
+                <div class="flex flex-col justify-start px-12 py-6">
+                  <ul>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Pariatur quod similique</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Sapiente libero doloribus</span>
+                    </li>
+                    <li class="py-4 font-bold text-gray-500 text-base">
+                      <i class="fa-solid fa-check text-[#24c55f] mr-1"></i>
+                      <span>Vel ipsa esse repudiandae</span>
+                    </li>
+                  </ul>
+                  <button
+                    class="block bg-white w-full shadow-lg text-indigo-600 p-5 rounded-lg my-4 hover:bg-indigo-600 hover:text-white">
+                    Start your trial
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+<div class="jsdd">
+
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script> 
